@@ -1,0 +1,15 @@
+<div className="container">
+    <div className="feed">
+        {posts.map((post, i) =>
+            <div key={post.id} className="post">
+                <div className="header">
+                    <img src={post.user.avatar} alt=""/>
+                    <h2>{post.user.username}</h2>
+                </div>
+                <p className="content">
+                    {post.text}
+                </p>
+            </div>
+        )}
+    </div>
+</div>
