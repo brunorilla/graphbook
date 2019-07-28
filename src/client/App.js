@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../../public/assets/css/styles.css';
 
 const posts = [{
         id: 2,
