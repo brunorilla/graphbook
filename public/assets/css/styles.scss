@@ -45,3 +45,21 @@ p {
     }
   }
 }
+
+form {
+  padding-bottom: 20px;
+  textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-color: #bbb;
+  }
+  [type=submit]{
+    border: none;
+    background-color: #6ca6fd;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    float: right;
+  }
+}
