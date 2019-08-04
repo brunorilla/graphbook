@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "webpack-dev-server --devtool inline-source-map --hot --config webpack.client.config.js",
-    "client:build": "webpack --config webpack.client.build.config.js"
+    "client:build": "webpack --config webpack.client.build.config.js",
+    "stats": "webpack --profile --json --config webpack.client.build.config.js > stats.json",
+    "analyze": "webpack-bundle-analyzer stats.json"
   },
   "repository": {
     "type": "git",
@@ -48,6 +50,7 @@
     "style-loader": "^0.23.1",
     "url-loader": "^2.1.0",
     "webpack": "^4.36.1",
+    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
   }
