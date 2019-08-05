@@ -6,13 +6,25 @@ import compress from 'compression';
 
 const app = express();
 
+app.use(helmet());
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'","'unsafe-inline'"],
+        styleSrc: ["'self'","'unsafe-inline'"],
+        imgSrc: ["'self'","data:","*.amazonaws.com"],
+    }
+}));
+
+app.use(helmet.referrerPolicy({policy: 'same-origin'}));
+
 const root = path.join(__dirname, '../../');
 
-console.log("root: ",root);
-console.log("dirname: ",__dirname);
-
 app.use('/', express.static(path.join(root, 'dist/client')));
+
 app.use('/uploads', express.static(path.join(root,'uploads')));
+
+
 app.get('/', (req,res)=>{
     res.sendFile(path.join(root, '/dist/client/index.html'));
 });
